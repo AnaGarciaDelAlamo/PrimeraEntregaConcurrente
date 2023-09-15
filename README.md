@@ -1,4 +1,4 @@
-# PrimeraEntregaConcurrente
+# Procesamiento_Concurrente_Suma_Transacciones_Financieras
 
 Contexto: 
 Eres un desarrollador de software en una gran corporación con múltiples departamentos como informática, gerencia, contabilidad, comercio y recursos humanos. Cada departamento realiza varias transacciones financieras diarias, y todas estas transacciones se registran y almacenan en archivos de texto individuales correspondientes a cada departamento.
@@ -16,7 +16,9 @@ Debido a la posible magnitud de las transacciones, debes utilizar el tipo de dat
 Para organizar tu trabajo, puedes considerar la creación de las siguientes clases:
 
 UtilidadesFicheros: con métodos útiles para el procesamiento de archivos, incluyendo uno para obtener la suma de las transacciones de un conjunto de archivos.
+
 ProcesadorContabilidad: que procesará un archivo, sumará las transacciones y almacenará el resultado en el archivo correspondiente.
+
 Lanzador: que controlará el flujo de la aplicación, lanzando un proceso ProcesadorContabilidad para cada archivo y luego agregando todos los resultados.
 Tu programa consistirá en varias clases que pueden estar dispersas en diferentes directorios, por lo que tu método main necesitará tomar el CLASSPATH de los argumentos.
 
