@@ -31,4 +31,10 @@ public class ProcesadorContabilidad implements Runnable {
             e.printStackTrace();
         }
     }
+
+   /*  @Override
+    public void run() {
+        long sumaDepartamento = UtilidadesFicheros.sumarTransaccionesEnArchivo(archivo);
+        UtilidadesFicheros.escribirResultadosEnArchivo(archivo, sumaDepartamento);
+    }*/
 }

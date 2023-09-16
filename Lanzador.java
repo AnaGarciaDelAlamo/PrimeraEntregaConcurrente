@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 public class Lanzador {
     public static void main(String[] args) {
         String[] archivos = { "informatica.txt", "gerencia.txt", "contabilidad.txt", "comercio.txt", "recursosHumanos.txt" };
-
+        //String[] archivos = args;
         // Crear hilos para procesar cada archivo
         Thread[] threads = new Thread[archivos.length];
         for (int i = 0; i < archivos.length; i++) {
@@ -27,6 +27,7 @@ public class Lanzador {
 
         // Sumar todas las sumas de departamentos
         long sumaGlobal = UtilidadesFicheros.obtenerSumaTransacciones(archivos);
+        //UtilidadesFicheros.escribirResultadosEnArchivo("ResultadoGlobal.txt", sumaGlobal);
 
         // Guardar resultado global
         try (PrintWriter pw = new PrintWriter(new FileWriter("ResultadoGlobal.txt"))) {
