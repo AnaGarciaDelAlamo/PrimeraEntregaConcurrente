@@ -1,1 +1,1 @@
-Saldo final para el departamento informatica: 2405
+Saldo final para el departamento informatica: 1908

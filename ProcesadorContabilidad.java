@@ -1,46 +1,5 @@
 //que procesará un archivo, sumará las transacciones y almacenará el resultado en el archivo correspondiente.
-/*import java.io.*;
-
-public class ProcesadorContabilidad implements Runnable {
-    private String archivo;
-
-    public ProcesadorContabilidad(String archivo) {
-        this.archivo = archivo;
-    }
-
-     @Override
-    public void run() {
-        long sumaDepartamento = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                long transaccion = Long.parseLong(linea);
-                sumaDepartamento += transaccion;
-            }
-        } catch (IOException | NumberFormatException e) {
-            System.out.println("Error en el archivo " + archivo);
-            e.printStackTrace();
-        }
-
-        // Guardar resultado en el archivo correspondiente
-        String resultadoArchivo = archivo + ".res";
-        try (PrintWriter pw = new PrintWriter(new FileWriter(resultadoArchivo))) {
-            pw.println(sumaDepartamento);
-        } catch (IOException e) {
-            System.out.println("Error al escribir el archivo " + resultadoArchivo);
-            e.printStackTrace();
-        }
-    }
-
-    /*@Override
-    public void run() {
-        long sumaDepartamento = UtilidadesFicheros.sumarTransaccionesEnArchivo(archivo);
-        UtilidadesFicheros.escribirResultadosEnArchivo(archivo, sumaDepartamento);
-    }
-}*/
-
 //Otra forma
-
 import java.io.IOException;
 import java.util.Random;
 
@@ -112,3 +71,58 @@ class ProcesadorContabilidad {
     return resultadoGlobal;
 }
 }
+
+//Otro codigo
+/*import java.io.IOException;
+import java.util.Random;
+
+class ProcesadorContabilidad {
+    public long calcularResultadoGlobal(String nombreArchivo) {
+        Transaccion transaccion = new Transaccion();
+        int numHilos = 5; // Número de hilos
+
+        // Crear un arreglo de hilos
+        Thread[] hilos = new Thread[numHilos];
+
+        Random random = new Random();
+
+        for (int i = 0; i < numHilos; i++) {
+            final long cantidad = random.nextInt(1000); // Cantidad a sumar en cada hilo
+            Lanzador lanzador = new Lanzador(transaccion, cantidad);
+            hilos[i] = new Thread(lanzador);
+        }
+
+        // Iniciar todos los hilos
+        for (Thread hilo : hilos) {
+            hilo.start();
+        }
+
+        // Esperar a que todos los hilos terminen
+        try {
+            for (Thread hilo : hilos) {
+                hilo.join();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Guardar el resultado en el mismo archivo
+        try {
+            String resultadoTransaccion = "Saldo final: " + transaccion.getSaldo();
+            UtilidadesFicheros.escribirResultadoEnArchivo(nombreArchivo, resultadoTransaccion);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Leer el resultado del archivo y devolverlo como resultado global
+        try {
+            String contenido = UtilidadesFicheros.leerContenido(nombreArchivo);
+            long resultadoGlobal = UtilidadesFicheros.obtenerSaldoDesdeLinea(contenido);
+            System.out.println("Procesamiento completado. Saldo total de la empresa: " + resultadoGlobal);
+            return resultadoGlobal;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+}*/

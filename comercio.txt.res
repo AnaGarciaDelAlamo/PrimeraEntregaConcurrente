@@ -1,1 +1,1 @@
-Saldo final para el departamento comercio: 2755
+Saldo final para el departamento comercio: 1705
