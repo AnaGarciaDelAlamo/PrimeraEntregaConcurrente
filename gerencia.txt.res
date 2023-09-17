@@ -1,1 +1,1 @@
-Saldo final para el departamento gerencia: 1000
+Saldo final para el departamento gerencia: 1817

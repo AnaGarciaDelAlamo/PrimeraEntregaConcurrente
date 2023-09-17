@@ -42,6 +42,7 @@ public class ProcesadorContabilidad implements Runnable {
 //Otra forma
 
 import java.io.IOException;
+import java.util.Random;
 
 class ProcesadorContabilidad {
  public long calcularResultadoGlobal() {
@@ -54,8 +55,10 @@ class ProcesadorContabilidad {
         // Crear un arreglo de hilos
         Thread[] hilos = new Thread[numHilos];
 
+        Random random = new Random();
+
         for (int i = 0; i < numHilos; i++) {
-            final long cantidad = i * 100; // Cantidad a sumar en cada hilo
+            final long cantidad = random.nextInt(1000); // Cantidad a sumar en cada hilo
             Lanzador lanzador = new Lanzador(transaccion, cantidad);
             hilos[i] = new Thread(lanzador);
         }

@@ -1,1 +1,1 @@
-Saldo final para el departamento contabilidad: 1000
+Saldo final para el departamento contabilidad: 2797
