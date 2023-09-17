@@ -1,7 +1,10 @@
-// que controlará el flujo de la aplicación, lanzando un proceso ProcesadorContabilidad para cada archivo y luego agregando todos los resultados.
-import java.io.FileWriter;
+ //que controlará el flujo de la aplicación, lanzando un proceso ProcesadorContabilidad para cada archivo y luego agregando todos los resultados.
+/*import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 
 public class Lanzador {
@@ -36,5 +39,9 @@ public class Lanzador {
             System.out.println("Error al escribir el archivo ResultadoGlobal.txt");
             e.printStackTrace();
         }
+
+        
     }
-}
+}*/
+
+//Otra forma

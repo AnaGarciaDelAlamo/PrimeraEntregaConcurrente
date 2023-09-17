@@ -1,5 +1,5 @@
 //que procesará un archivo, sumará las transacciones y almacenará el resultado en el archivo correspondiente.
-import java.io.*;
+/*import java.io.*;
 
 public class ProcesadorContabilidad implements Runnable {
     private String archivo;
@@ -8,7 +8,7 @@ public class ProcesadorContabilidad implements Runnable {
         this.archivo = archivo;
     }
 
-    @Override
+     @Override
     public void run() {
         long sumaDepartamento = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
@@ -32,9 +32,11 @@ public class ProcesadorContabilidad implements Runnable {
         }
     }
 
-   /*  @Override
+    /*@Override
     public void run() {
         long sumaDepartamento = UtilidadesFicheros.sumarTransaccionesEnArchivo(archivo);
         UtilidadesFicheros.escribirResultadosEnArchivo(archivo, sumaDepartamento);
-    }*/
-}
+    }
+}*/
+
+//Otra forma

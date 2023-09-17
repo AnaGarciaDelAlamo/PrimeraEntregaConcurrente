@@ -1,6 +1,6 @@
 //con métodos útiles para el procesamiento de archivos, incluyendo uno para obtener la suma de las transacciones de un conjunto de archivos.
 
-import java.io.*;
+/*import java.io.*;
 
 public class UtilidadesFicheros {
     public static long obtenerSumaTransacciones(String[] archivos) {
@@ -33,15 +33,17 @@ public class UtilidadesFicheros {
             e.printStackTrace();
         }
         return suma;
-    }*/
+    }
 
-   /*  public static void escribirResultadosEnArchivo(String archivo, long suma) {
+    public static void escribirResultadosEnArchivo(String archivo, long suma) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo + ".res"))) {
             bw.write(Long.toString(suma));
         } catch (IOException e) {
             System.out.println("Error al escribir el archivo " + archivo);
             e.printStackTrace();
         }
-    }*/
-}
+    } 
+}*/
+
+//Otra forma
 
