@@ -1,1 +1,1 @@
-Saldo final para el departamento comercio.txt: 2025
+49400

@@ -1,6 +1,5 @@
 //que procesará un archivo, sumará las transacciones y almacenará el resultado en el archivo correspondiente.
-
-import java.io.IOException;
+/*import java.io.IOException;
 import java.util.Random;
 
 class ProcesadorContabilidad {
@@ -70,5 +69,48 @@ class ProcesadorContabilidad {
     System.out.println("Procesamiento completado. Saldo total: " + resultadoGlobal);
     return resultadoGlobal;
 }
+}*/
+
+//otra forma
+import java.io.*;
+
+public class ProcesadorContabilidad implements Runnable {
+    private String archivo;
+
+    public ProcesadorContabilidad(String archivo) {
+        this.archivo = archivo;
+    }
+
+    @Override
+    public void run() {
+        long sumaDepartamento = obtenerSumaTransacciones(new String[]{archivo});
+
+        // Guardar resultado en el archivo correspondiente
+        String resultadoArchivo = archivo + ".res";
+        try (PrintWriter pw = new PrintWriter(new FileWriter(resultadoArchivo))) {
+            pw.println(sumaDepartamento);
+        } catch (IOException e) {
+            // Manejar excepciones de escritura aquí
+            e.printStackTrace();
+        }
+    }
+
+    private long obtenerSumaTransacciones(String[] archivos) {
+        long sumaTotal = 0;
+        for (String archivo : archivos) {
+            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    long transaccion = Long.parseLong(linea);
+                    sumaTotal += transaccion;
+                }
+            } catch (IOException | NumberFormatException e) {
+                // Manejar excepciones de lectura y formato aquí
+                e.printStackTrace();
+            }
+        }
+        return sumaTotal;
+    }
 }
+
 
