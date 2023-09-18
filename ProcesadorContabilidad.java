@@ -67,7 +67,7 @@ class ProcesadorContabilidad {
         e.printStackTrace();
     }
 
-    System.out.println("Procesamiento completado. Saldo total de la empresa: " + resultadoGlobal);
+    System.out.println("Procesamiento completado. Saldo total: " + resultadoGlobal);
     return resultadoGlobal;
 }
 }

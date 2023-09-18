@@ -1,1 +1,1 @@
-Saldo final para el departamento recursos_humanos: 1846
+Saldo final para el departamento recursos_humanos: 2406
